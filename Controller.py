@@ -12,8 +12,7 @@ class Controller:
     def __setupPipe(self):
         # pipeTemplate = pipes.Template()
         # pipeTemplate.append('tr a-z A-Z', '--')
-        # self.pipe = pipeTemplate.open(self.path+'/Pipes/cpu-level-11', 'w')
-        self.pipe = open(self.path+'/Pipes/cpu-level-11', 'w');
+        self.pipe = open(self.path+'/Pipes/SmashBot', 'w');
 
     #call this at the end of every script
     def releaseButtons(self):
@@ -40,7 +39,6 @@ class Controller:
     def inputs(self,button2Press,pressOrRelease=True):
         # pipeTemplate = pipes.Template()
         # pipeTemplate.append('tr a-z A-Z', '--')
-        # pipe = pipeTemplate.open(self.path+'/Pipes/cpu-level-11', 'w')
         action = "PRESS";
         if(not pressOrRelease): action = "RELEASE";
         self.pipe.write(action + " "+button2Press+"\n")
@@ -51,7 +49,6 @@ class Controller:
         # pipeTemplate = pipes.Template()
         # print (buttonXCord,buttonYCord,pressOrRelease)
         # pipeTemplate.append('tr a-z A-Z', '--')
-        # pipe = pipeTemplate.open(self.path+'/Pipes/cpu-level-11', 'w')
         if(not pressOrRelease): action = "RELEASE";
         self.pipe.write("SET"+" "+action+" "+buttonXCord+" "+buttonYCord+"\n")
         # self.pipe.close();
@@ -60,7 +57,6 @@ class Controller:
     def triggerAnalog(self,action,buttonXCord,pressOrRelease=True):
         # pipeTemplate = pipes.Template()
         # pipeTemplate.append('tr a-z A-Z', '--')
-        # pipe = pipeTemplate.open(self.path+'/Pipes/cpu-level-11', 'w')
         if(not pressOrRelease): action = "RELEASE";
         self.pipe.write("SET"+" "+action+" "+buttonXCord+" "+"\n")
         self.pipe.flush();
